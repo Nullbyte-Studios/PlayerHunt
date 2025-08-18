@@ -1,10 +1,10 @@
 package org.implorestudios.playerhunt.command.playerhunt.team.add;
 
-import com.github.sirblobman.api.command.Command;
-import com.github.sirblobman.api.language.replacer.StringReplacer;
 import lombok.NonNull;
 import org.bukkit.command.CommandSender;
 import org.implorestudios.playerhunt.PlayerHuntPlugin;
+import org.implorestudios.playerhunt.command.Command;
+import org.implorestudios.playerhunt.language.StringReplacer;
 
 import java.util.Collections;
 import java.util.List;
@@ -17,7 +17,7 @@ public class AddSubcommand extends Command {
         addSubCommand(new RunnerAddSubcommand(plugin));
     }
     @Override
-    protected @NonNull List<String> onTabComplete(@NonNull CommandSender sender, String @NonNull [] args) {
+    protected List<String> onTabComplete(@NonNull CommandSender sender, String @NonNull [] args) {
         return Collections.emptyList();
     }
     @Override

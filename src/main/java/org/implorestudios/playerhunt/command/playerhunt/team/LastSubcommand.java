@@ -1,9 +1,9 @@
 package org.implorestudios.playerhunt.command.playerhunt.team;
 
-import com.github.sirblobman.api.command.Command;
 import lombok.NonNull;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.implorestudios.playerhunt.command.Command;
 import org.implorestudios.playerhunt.game.Game;
 
 import java.util.Collections;
@@ -16,7 +16,7 @@ public class LastSubcommand extends Command {
     }
 
     @Override
-    protected @NonNull List<String> onTabComplete(@NonNull CommandSender sender, String @NonNull [] args) {
+    protected List<String> onTabComplete(@NonNull CommandSender sender, String @NonNull [] args) {
         args[0] = args.length == 0 ? "" : args[0];
         return Collections.emptyList();
     }

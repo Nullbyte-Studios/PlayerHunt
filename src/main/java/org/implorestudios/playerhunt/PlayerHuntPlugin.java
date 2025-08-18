@@ -1,33 +1,38 @@
 package org.implorestudios.playerhunt;
 
-import com.github.sirblobman.api.configuration.ConfigurationManager;
-import com.github.sirblobman.api.language.LanguageManager;
-import com.github.sirblobman.api.language.replacer.Replacer;
-import com.github.sirblobman.api.plugin.ConfigurablePlugin;
-import com.github.sirblobman.api.shaded.adventure.text.minimessage.MiniMessage;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.implorestudios.playerhunt.command.playerhunt.PlayerhuntCommand;
+import org.implorestudios.playerhunt.config.ConfigurationManager;
 import org.implorestudios.playerhunt.event.GameEvents;
+import org.implorestudios.playerhunt.language.LanguageManager;
+import org.implorestudios.playerhunt.language.Replacer;
 
 @Getter
-public final class PlayerHuntPlugin extends ConfigurablePlugin {
+public final class PlayerHuntPlugin extends JavaPlugin {
     public static PlayerHuntPlugin plugin;
+    private ConfigurationManager configurationManager;
+    private LanguageManager languageManager;
+    private YamlConfiguration mainConfig;
+    
     public static Component mmString(String string) {
         String text = MiniMessage.miniMessage().serialize(MiniMessage.miniMessage().deserialize(string));
         return net.kyori.adventure.text.minimessage.MiniMessage.miniMessage().deserialize(text);
     }
+    
     public static Component mm(CommandSender audience, String key) {
-        String text = MiniMessage.miniMessage().serialize(plugin.getLanguageManager().getMessageWithPrefix(audience, key));
+        String text = plugin.getLanguageManager().getMessageWithPrefix(audience, key);
         return net.kyori.adventure.text.minimessage.MiniMessage.miniMessage().deserialize(text);
     }
+    
     public static Component mm(CommandSender audience, String key, Replacer... replacer) {
-        String text = MiniMessage.miniMessage().serialize(plugin.getLanguageManager().getMessageWithPrefix(audience, key, replacer));
+        String text = plugin.getLanguageManager().getMessageWithPrefix(audience, key, replacer);
         return net.kyori.adventure.text.minimessage.MiniMessage.miniMessage().deserialize(text);
     }
-    private YamlConfiguration mainConfig;
     @Override
     public void onLoad() {
         this.loadConfig();
@@ -36,6 +41,8 @@ public final class PlayerHuntPlugin extends ConfigurablePlugin {
     @Override
     public void onEnable() {
         plugin = this;
+        this.configurationManager = new ConfigurationManager(this);
+        this.languageManager = new LanguageManager(this);
         this.loadLanguages();
         this.registerCommands();
         this.registerListeners();
@@ -56,7 +63,6 @@ public final class PlayerHuntPlugin extends ConfigurablePlugin {
     }
 
     private void loadConfig() {
-        ConfigurationManager configurationManager = getConfigurationManager();
         configurationManager.saveDefault("config.yml");
         configurationManager.reload("config.yml");
         this.mainConfig = configurationManager.get("config.yml");
@@ -64,7 +70,6 @@ public final class PlayerHuntPlugin extends ConfigurablePlugin {
     }
 
     private void loadLanguages() {
-        LanguageManager languageManager = getLanguageManager();
         languageManager.saveDefaultLanguageFiles();
         languageManager.reloadLanguages();
         languageManager.onPluginEnable();

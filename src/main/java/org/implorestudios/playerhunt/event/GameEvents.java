@@ -1,7 +1,5 @@
 package org.implorestudios.playerhunt.event;
 
-import com.github.sirblobman.api.language.replacer.IntegerReplacer;
-import com.github.sirblobman.api.language.replacer.StringReplacer;
 import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -22,6 +20,8 @@ import org.implorestudios.playerhunt.game.Cooldown;
 import org.implorestudios.playerhunt.game.Game;
 import org.implorestudios.playerhunt.game.Items;
 import org.implorestudios.playerhunt.game.PlayerManager;
+import org.implorestudios.playerhunt.language.IntegerReplacer;
+import org.implorestudios.playerhunt.language.StringReplacer;
 
 import java.util.HashMap;
 

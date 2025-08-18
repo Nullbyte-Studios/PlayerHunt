@@ -15,18 +15,10 @@ repositories {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
     }
-    maven {
-        url = "https://nexus.sirblobman.xyz/public/"
-    }
-    maven {
-        url = "https://jitpack.io"
-    }
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
-
-    compileOnly 'com.github.sirblobman.api:core:2.9-SNAPSHOT'
 
     compileOnly 'org.projectlombok:lombok:1.18.36'
     annotationProcessor 'org.projectlombok:lombok:1.18.36'

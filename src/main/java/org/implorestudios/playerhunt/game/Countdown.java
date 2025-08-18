@@ -1,9 +1,9 @@
 package org.implorestudios.playerhunt.game;
 
-import com.github.sirblobman.api.language.replacer.IntegerReplacer;
 import lombok.Getter;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.implorestudios.playerhunt.PlayerHuntPlugin;
+import org.implorestudios.playerhunt.language.IntegerReplacer;
 
 @Getter
 public class Countdown extends BukkitRunnable {

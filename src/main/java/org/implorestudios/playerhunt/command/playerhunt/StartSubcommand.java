@@ -1,11 +1,11 @@
 package org.implorestudios.playerhunt.command.playerhunt;
 
-import com.github.sirblobman.api.command.Command;
-import com.github.sirblobman.api.language.replacer.IntegerReplacer;
 import lombok.NonNull;
 import org.bukkit.command.CommandSender;
 import org.implorestudios.playerhunt.PlayerHuntPlugin;
+import org.implorestudios.playerhunt.command.Command;
 import org.implorestudios.playerhunt.game.Game;
+import org.implorestudios.playerhunt.language.IntegerReplacer;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,7 +18,7 @@ public class StartSubcommand extends Command {
     }
 
     @Override
-    protected @NonNull List<String> onTabComplete(@NonNull CommandSender commandSender, String @NonNull [] strings) {
+    protected List<String> onTabComplete(@NonNull CommandSender commandSender, String @NonNull [] strings) {
         return Collections.emptyList();
     }
 

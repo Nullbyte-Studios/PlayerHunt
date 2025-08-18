@@ -1,13 +1,13 @@
 package org.implorestudios.playerhunt.command.playerhunt.team;
 
-import com.github.sirblobman.api.command.Command;
-import com.github.sirblobman.api.language.replacer.StringReplacer;
 import lombok.NonNull;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.implorestudios.playerhunt.command.Command;
 import org.implorestudios.playerhunt.game.Game;
+import org.implorestudios.playerhunt.language.StringReplacer;
 
 import java.util.List;
 import java.util.Objects;
@@ -19,7 +19,7 @@ public class RemoveSubcommand extends Command {
     }
 
     @Override
-    protected @NonNull List<String> onTabComplete(@NonNull CommandSender sender, String @NonNull [] args) {
+    protected List<String> onTabComplete(@NonNull CommandSender sender, String @NonNull [] args) {
         args[0] = args.length == 0 ? "" : args[0];
         return Bukkit.getOnlinePlayers().stream().map(Player::getName).filter(name -> name.contains(args[0])).collect(Collectors.toList());
     }

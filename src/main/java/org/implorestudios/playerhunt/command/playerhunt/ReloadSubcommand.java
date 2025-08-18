@@ -1,9 +1,9 @@
 package org.implorestudios.playerhunt.command.playerhunt;
 
-import com.github.sirblobman.api.command.Command;
 import lombok.NonNull;
 import org.bukkit.command.CommandSender;
 import org.implorestudios.playerhunt.PlayerHuntPlugin;
+import org.implorestudios.playerhunt.command.Command;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class ReloadSubcommand extends Command {
     }
 
     @Override
-    protected @NonNull List<String> onTabComplete(@NonNull CommandSender commandSender, String @NonNull [] strings) {
+    protected List<String> onTabComplete(@NonNull CommandSender commandSender, String @NonNull [] strings) {
         return List.of();
     }
 

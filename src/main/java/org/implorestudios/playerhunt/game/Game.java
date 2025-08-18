@@ -1,7 +1,5 @@
 package org.implorestudios.playerhunt.game;
 
-import com.github.sirblobman.api.language.replacer.Replacer;
-import com.github.sirblobman.api.language.replacer.StringReplacer;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
@@ -9,8 +7,9 @@ import org.bukkit.World;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.implorestudios.playerhunt.PlayerHuntPlugin;
+import org.implorestudios.playerhunt.language.Replacer;
+import org.implorestudios.playerhunt.language.StringReplacer;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 @Getter
